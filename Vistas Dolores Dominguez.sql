@@ -20,11 +20,11 @@ CREATE OR REPLACE VIEW comprasProveedor AS
 CREATE OR REPLACE VIEW cantidadArticulos AS
 	(	SELECT A.idArticulo, SUM(IV.cantidad) AS 'Cantidad vendidos', SUM(IC.cantidad) AS 'Cantidad comprados'
 		FROM Ventas V 
-		INNER JOIN itemVentas IV
+		INNER JOIN ItemVentas IV
 		ON V.idVenta = IV.idVenta 
 		INNER JOIN Articulos A
 		ON IV.idArticulo = A.idArticulo
-		INNER JOIN itemCompras IC
+		INNER JOIN ItemCompras IC
 		ON A.idArticulo = IC.idArticulo
 		GROUP BY A.idArticulo);
         
