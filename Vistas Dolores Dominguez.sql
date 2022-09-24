@@ -1,7 +1,7 @@
 -- Muestra las ventas totales de toda la cadena de almacenes en cada año
 CREATE OR REPLACE VIEW totalVentas AS
 	(	SELECT TRUNCATE((SUM(V.precioTotal)),2) AS 'Monto total', YEAR(V.fecha) AS 'Año'
-		FROM ventas V INNER JOIN itemventas IV
+		FROM Ventas V INNER JOIN ItemVentas IV
 		ON V.idVenta = IV.idVenta
 		GROUP BY YEAR(V.fecha)
 		ORDER BY YEAR(V.fecha) ASC);
