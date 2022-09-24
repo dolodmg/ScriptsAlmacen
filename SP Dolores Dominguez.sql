@@ -3,8 +3,7 @@ DELIMITER //
 CREATE PROCEDURE sp_clientes_monto (IN monto FLOAT)
 BEGIN 
     SELECT CONCAT(C.nombre,' ', C.apellido) AS 'Cliente'
-    FROM Clientes C
-    INNER JOIN Ventas V
+    FROM Clientes C INNER JOIN Ventas V
     ON C.idCliente = V.idCliente
     WHERE V.precioTotal > monto
     GROUP BY C.idCliente;
@@ -26,8 +25,7 @@ BEGIN
 	END IF;
     IF existe THEN
 		SELECT A.nombre AS 'Almacen', TRUNCATE((SUM(V.precioTotal)),2) AS 'Monto total'
-		FROM Clientes C
-		INNER JOIN Ventas V
+		FROM Clientes C INNER JOIN Ventas V
 		ON C.idCliente = V.idCliente
 		INNER JOIN Almacenes A
 		ON V.idAlmacen = A.idAlmacen
@@ -55,8 +53,7 @@ BEGIN
 	END IF;
     IF existe THEN
         SELECT COUNT(IV.idArticulo) AS 'Cantidad de ventas'
-		FROM ItemVentas IV 
-		INNER JOIN Ventas V
+		FROM ItemVentas IV INNER JOIN Ventas V
 		ON IV.idVenta = V.idVenta
 		WHERE (V.fecha BETWEEN fechaInicio AND fechaFin) AND (IV.idArticulo = articulo);
 	ELSE
