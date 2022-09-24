@@ -4,7 +4,7 @@ CREATE PROCEDURE sp_clientes_monto (IN monto FLOAT)
 BEGIN 
     SELECT CONCAT(C.nombre,' ', C.apellido) AS 'Cliente'
     FROM Clientes C
-	INNER JOIN Ventas V
+    INNER JOIN Ventas V
     ON C.idCliente = V.idCliente
     WHERE V.precioTotal > monto
     GROUP BY C.idCliente;
@@ -12,7 +12,7 @@ END //
 
 -- Dado un idCliente, listar los almacenes en los que compró ese cliente y el monto total que gastó en cada uno.
 DELIMITER //
-CREATE PROCEDURE sp_cliente_compras7 (IN id_cliente INT)
+CREATE PROCEDURE sp_cliente_compras (IN id_cliente INT)
 BEGIN
 	DECLARE existe BOOL;
     DECLARE cliente INT;
