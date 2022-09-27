@@ -20,7 +20,7 @@ CREATE TABLE logAuditoria (
     usuario VARCHAR(30) NOT NULL,
     fecha DATETIME NOT NULL);
 
--- Trigger que se dispara cada vez que se elimina un empleado de la tabla Empleados    
+-- Trigger que se dispara cada vez que se agrega un empleado a la tabla Empleados    
 CREATE TRIGGER tr_empleados_insert
 AFTER INSERT ON Empleados
 FOR EACH ROW
