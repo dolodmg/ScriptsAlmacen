@@ -14,7 +14,7 @@ CREATE TABLE Ciudades (
     nombre VARCHAR(30) NOT NULL,
     idProvincia INT,
     CONSTRAINT fk_ciudad_prov FOREIGN KEY (idProvincia) REFERENCES Provincias(idProvincia)
-);
+); 
 
 CREATE TABLE Direcciones (
 	idDireccion INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
